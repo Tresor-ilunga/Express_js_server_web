@@ -2,11 +2,40 @@
 
 {% block content %}
     <h1>Bienvenu sur la page de contact</h1>
-    <p>
-        Lorem, ipsum dolor sit amet consectetur adipirovident laudantium eos voluptate eveniet placeat temporibus eligendi error praesentium laborum, ipsum tenetur repellat consectetur ipsa saepe facilis. Explicabo dolores minus alias soluta, earum quo.
-        Ad, esse dolorem tenetur magni quae veniam mosicing elit. Illo, accusamus ducimus atque magnam sint similique est quo ipsum praesentium itaque sit exercitationem perferendis eaque maiores sunt neque laudantium vero? Sequi!
-        Aliquid, odio, necessitatibus obcaecati aut plestiae odit vero modi temporibus inventore aliquam eius quas beatae, enim maiores unde quidem, illo rerum nisi fugiat voluptates placeat qui. A, consequuntur.
-        Vel dolore nesciunt autem cum eveniet, harum odio asperiores sequi necessitatibus non at ex deleniti beatae quidem perferendis deserunt eius. Officia aliquam consequuntur, aperiam voluptas praesentium perferendis veritatis doloremque laudantium?
-        Et, a deserunt, temporibus ex ut laboriosam consequuntur architecto quas at porro natus corrupti inventore voluptates quos necessitatibus rerum dolorem facilis omnis. Voluptate iure cum nam recusandae nostrum ab enim.
-    </p>
+    
+    <div class="container">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    </div>
+
+
+    <div class="container">
+        <form method="POST" action="/contact">
+
+
+        {% if success %}
+            <div class="alert alert-success">{{success}}</div>
+        {% endif %}
+        {% if error %}
+            <div class="alert alert-danger">{{error}}</div>
+        {% endif %}
+        
+            <div class="mb-3">
+                <label for="email" class="form-label">Enter your email adress :</label>
+                <input type="email" name="email" class="form-controle" id="email">
+            </div>
+
+            <div class="mb-3">
+                <label for="subject" class="form-label">Enter your subject :</label>
+                <input type="subject" name="subject" class="form-controle" id="subject">
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Enter your message :</label>
+                <textarea class="form-control" name="message" id="message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-lg btn-success btn-block mb-3">Submit</button>
+        </form>
+    </div>
 {% endblock content %}
