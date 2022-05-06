@@ -21,14 +21,14 @@ router.post('/contact', (req,res)=>{
     let transpoter = nodemailer.createTransport({
         service: 'gmail',
         auth:{
-            user: 'ti6177854@gmail.com',
+            user: 'testinfos94@gmail.com',
             pass: 'Hello@4166'
         }
     });
 
     let mailOptions ={
         from: req.body.email,
-        to: 'ti6177854@gmail.com',
+        to: 'testinfos94@gmail.com',
         subject: req.body.subject,
         text: req.body.message
     };
