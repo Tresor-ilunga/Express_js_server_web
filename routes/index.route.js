@@ -1,5 +1,6 @@
 const express = require("express");
 const nodemailer = require('nodemailer');
+const { Validator } = require('node-input-validator');
 const router = express.Router();
 
 /* GET home page*/
@@ -15,6 +16,20 @@ router.get('/contact', (req, res)=>{
 router.post('/contact', (req,res)=>{
     // récupération des données du formulaire
     //console.log(req.body);
+
+    // Validation du formulaire 
+        const formIsValid = new Validator(req.body, {
+            email: 'required|email',
+            subject: 'required',
+            message: 'required'
+        });
+
+        formIsValid.check().then((matched) => {
+        if (!matched) {
+            res.render('contact', {formError: formIsValid.error})
+            //res.status(422).send(formIsValid.errors);
+        }
+        });
 
 
     // envoie du mail

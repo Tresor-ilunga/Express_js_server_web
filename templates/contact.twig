@@ -24,18 +24,22 @@
             <div class="mb-3">
                 <label for="email" class="form-label">Enter your email adress :</label>
                 <input type="email" name="email" class="form-control" id="email">
+                {% if formError.email %} <ul class="error"><li>{{formError.email.message}}</li></ul>{% endif %}
+                
             </div>
 
             <div class="mb-3">
                 <label for="subject" class="form-label">Enter your subject :</label>
                 <input type="subject" name="subject" class="form-control" id="subject">
+                {% if formError.subject %} <ul class="error"><li>{{formError.subject.message}}</li></ul>{% endif %}
             </div>
 
             <div class="mb-3">
                 <label for="message" class="form-label">Enter your message :</label>
                 <textarea class="form-control" name="message" id="message" rows="4"></textarea>
+                {% if formError.message %} <ul class="error"><li>{{formError.message.message}}</li></ul>{% endif %}
             </div>
-            <button type="submit" class="btn btn-lg btn-success btn-block mb-3">Submit</button>
+            <button type="submit" class="btn btn-lg btn-success btn-block mb-3">Send your message</button>
         </form>
     </div>
 {% endblock content %}
